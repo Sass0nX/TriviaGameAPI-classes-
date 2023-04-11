@@ -5,7 +5,7 @@ import html
 
 def getquestion():
     global response
-    url = 'https://opentdb.com/api.php?amount=20&category=12&type=boolean'
+    url = 'https://opentdb.com/api.php?amount=50&type=boolean'
     response = requests.get(url).json()
     questionresponse = response['results'][0]['question']
     question = html.unescape(questionresponse)

@@ -35,7 +35,7 @@ class Labels(Buttons):
         self.qnumber = 1
         self.canvas = tkinter.Canvas(self.root, bg='gray')
         self.canvas.pack()
-        self.text = self.canvas.create_text(200, 70, width=270, text=f'Q{self.qnumber}.{api.getquestion()}', fill='black', font=15)
+        self.text = self.canvas.create_text(200, 70, width=270, text=f'Q{self.qnumber}.{api.getquestion()}', fill='black', font=100)
         self.score = Label(self.root, text=f'Score: {self.scoreresult}', font=20)
         self.score.place(x=100,y=0)
 
