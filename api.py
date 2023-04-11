@@ -4,19 +4,14 @@ import html
 
 
 def getquestion():
-    global response
+    global answer
     url = 'https://opentdb.com/api.php?amount=50&type=boolean'
     response = requests.get(url).json()
     questionresponse = response['results'][0]['question']
     question = html.unescape(questionresponse)
+    answer = response['results'][0]['correct_answer']
     return question
 getquestion()
 
-answer = response['results'][0]['correct_answer']
-print(answer)
-if answer == 'True':
-    getquestion()
-    answer = response['results'][0]['correct_answer']
-elif answer == 'False':
-    getquestion()
-    answer = response['results'][0]['correct_answer']
+answer = answer
+

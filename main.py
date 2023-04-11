@@ -1,4 +1,4 @@
-import time
+import random
 import json
 import tkinter
 from tkinter import *
@@ -46,11 +46,15 @@ def set_new():
     print(api.answer)
     print(myquizapp.qnumber)
     if myquizapp.qnumber == 11:
+        myquizapp.canvas.itemconfig(myquizapp.text, text='GAME OVER!')
         exit = messagebox.askyesno('GAME OVER!!!', f'the game is over with score {myquizapp.scoreresult}, you want to play again?')
         if exit:
+            color_list = ["yellow", "pink", "purple", "blue"]
             myquizapp.qnumber = 1
             myquizapp.scoreresult = 0
             myquizapp.canvas.itemconfig(myquizapp.text, text=f'Q{myquizapp.qnumber}.{api.getquestion()}')
+            myquizapp.score.config(text=f'Score: {myquizapp.scoreresult}')
+            myquizapp.canvas.configure(bg=random.choice(color_list))
         else:
             myquizapp.root.destroy()
 
